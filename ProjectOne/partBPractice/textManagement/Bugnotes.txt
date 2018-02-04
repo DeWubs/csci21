@@ -1,0 +1,3 @@
+fixed missing semicolon bug on function prototypes
+fixed a bug where certain items from the txt file were not showing up
+    fix--I formatted the text file wrong, i forgot to include a space between id and firstName
