@@ -1,0 +1,8 @@
+a bug was encountered that said that monsterName() was not in the class Monster 
+    i then realized that the function was not prototyped in the class so i added it
+    likewise with describe()
+a bug that was saying monsterName() was not declared in class
+    after being confused for a moment i realized that i spelled it wrong in the prototype i corrected that error
+    and the program compiled.
+a bug where my age variable was saying it wasnt declared
+    i had it set to string by accedent
