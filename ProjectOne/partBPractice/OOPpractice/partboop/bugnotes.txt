@@ -1,0 +1,4 @@
+fixed a bug where the setters and getters werent working as intended by getting rid of spaces
+fixed a bug where the class wasnt working because i was missing a semicolon after it
+working on a bug where firstName lastName and balance are saying not declared in scope
+working on a bug where my card constructer isnt working as intended, for now i just commented it out
