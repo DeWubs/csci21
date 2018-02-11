@@ -1,0 +1,134 @@
+PROGRAM NAME: Project 4, CSCI 20, Spring 2016
+PROGRAMMER:   Robert Prouty
+DATE:         13 Dec 2017
+
+FILES IN PROJECT:
+
+1129.cpp [driver]
+game_object.h
+game_object.cpp
+item.h
+item.cpp
+player.h
+player.cpp
+room.h
+room.cpp
+CinReader.h
+CinReader.cpp
+
+-------------------------------------------------------------------------------
+/***** CLASS GameObject *****/
+FILES: game_object.h game_object.cpp
+
+DESCRIPTION: This class is a base class for all objects in the game.
+
+PROPERTIES:
+
+string name
+int gold
+vector<Item> items
+
+CONSTRUCTORS:
+
+GameObject ();                 -- Default constructor
+GameObject (string newName);   -- sets string for name
+GameObject (string newName, int newGold); -- sets gold for gold value and string for name
+
+FUNCTIONS:
+
+void setName (string newName);  -- sets name for string
+string getName ();	            -- getter
+
+void addItem(Item anItem);      -- adds item to the vector
+Item getItem (int index);       -- returns item index
+void removeItem(int index);     -- removes an item from the vector
+int getItemCount();             -- returns the vector size
+
+
+void adjustGold (int amount);   -- changes the players goldcount
+void setGold (int newGold);     -- sets for gold
+int getGold ();                 -- returns gold
+
+bool hasItem(string itemName);  -- checks to see if a player has a specific item by name
+-------------------------------------------------------------------------------
+/***** CLASS Item *****/
+FILES: item.h item.cpp
+
+DESCRIPTION: This class represents an item in the game. Derived from 
+             GameObject.
+
+PROPERTIES:
+
+string itemName;
+string itemDescription;
+
+CONSTRUCTORS:
+
+Item(string newItemName, string newItemDesription); -- gives the item a name and a description
+
+FUNCTIONS:
+
+void setItemName(string newItemName);               -- setter for item name
+void setItemDescription (string newItemDesription); -- setter for item description
+	 
+string getItemName();                               -- getter for item name
+string getItemDescription();                        -- getter for item description
+
+-------------------------------------------------------------------------------
+/***** CLASS Player *****/
+FILES: Player.h Player.cpp
+
+DESCRIPTION: This class represents the player. Derived from GameObject.
+
+CONSTRUCTORS:
+
+Player (string newName, int newGold);				-- calls GameObject with a name and gold
+
+
+-------------------------------------------------------------------------------
+/***** CLASS Room *****/
+FILES: Room.h Room.cpp
+
+DESCRIPTION: This class represents a room or location in the game.
+
+PROPERTIES:
+
+string description;
+Room* northRoom;
+Room* southRoom;
+Room* eastRoom;
+Room* westRoom;
+
+CONSTRUCTORS:
+
+Room(string, string, int)		-- calls GameObject(string); assigns values to
+								   descriptions and targetItems
+
+FUNCTIONS:
+
+Room();														-- default constructor
+Room(string newName, string newDescription);				-- constructor that allows a name and description
+Room(string newName,int newGold, string newDescription);	-- constructor that allows a name, description, and an ammount of gold
+		
+void setNorthRoom(Room* newNorthRoom); 						-- setter for the north room 
+void setSouthRoom(Room* newSouthRoom);						-- setter for the south room
+void setEastRoom(Room* newEastRoom);						-- setter for the east room
+void setWestRoom(Room* newWestRoom);						-- setter for the west room
+void setDescription(string newDescription);					-- setter for the room's description
+	
+		
+Room* getNorthRoom();										-- getter for the north room 
+Room* getSouthRoom();										-- getter for for the south room
+Room* getEastRoom();										-- getter for for the east room
+Room* getWestRoom();										-- getter for the west room
+		
+string getDescription();									-- getter for the description
+
+-------------------------------------------------------------------------------
+/***** CLASS CinReader *****/
+FILES: CinReader.h CinReader.cpp
+
+DESCRIPTION: This class handles user input from the keyboard. This class 
+             has been provided by the instructor.
+
+-------------------------------------------------------------------------------
