@@ -177,7 +177,7 @@ bool isValidCard(string cardNumber)
 
 int main()
 {
-    ifstream cards("cards.txt");
+    ifstream cards("account.txt");
     string cardNumber;
    
     while(!cards.eof())
@@ -185,16 +185,16 @@ int main()
         cards >> cardNumber;
     
     //isValidBin();
-    if (isValidBin(cardNumber)== true)
-    {
-        //cout<<"is valid"<<endl;;
-        isValidCard(cardNumber);
-    }
-    else{
-        cout<<"Not valid"<<endl;
-        cout << "unknown card type!!\n";
-
-    }
+         if (isValidBin(cardNumber)== true)
+        {
+            //cout<<"is valid"<<endl;;
+            isValidCard(cardNumber);
+         }
+        else
+        {
+            cout<<"Not valid"<<endl;
+            cout << "unknown card type!!\n";
+        }
     }
     
     
