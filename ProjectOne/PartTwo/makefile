@@ -1,14 +1,14 @@
 
 
 
-labtest: unit_test.o lab.o
-	g++ -Wall -std=c++11 -g -o labtest lab.o unit_test.o
+labtest:  pm2.o pr.o
+	g++ -Wall -g -o labtest pm2.o pr.o
 
-lab: lab.cpp
-	g++ -Wall -std=c++11 -g -c lab.cpp
+lab: pm2.o
+	g++ -Wall -g -c pm2.o
 
-unittest: unit_test.cpp
-	g++ -Wall -std=c++11 -g -c unit_test.cpp	
+unittest: pr.cpp
+	g++ -Wall -g -c pr.cpp	
 
 clean:
 	rm *.o *test

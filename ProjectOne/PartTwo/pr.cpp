@@ -1,16 +1,87 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include "p2.h"
+#include "pr.h"
 
-using namespace std;
+Transaction::Transaction()
+{
+    date_ = "00/00/0000";
+}
 
-/*
-this section is the really boring part of the coding, the "donkey work", as it were, setters, getters and, constructer set up, not much to say about it other than its important, but still very
-boring to read and write :P
-*/ 
+Transaction::Transaction(string newDate)
+{
+    date_ = newDate;
+    transactionNumber_ = 0;
+}
+
+
+Transaction::Transaction(string newDate, int newTransactionNumber)
+{
+    date_ = newDate;
+    transactionNumber_ = newTransactionNumber;
+    vendor_ = "no Vendor";
+}
+
+Transaction::Transaction(string newDate, int newTransactionNumber, string newVendor)
+{
+    date_ = newDate;
+    transactionNumber_ = newTransactionNumber;
+    vendor_ = newVendor;
+    purchaseAmmount_ = 0.00;
+}
+
+Transaction::Transaction(string newDate, int newTransactionNumber, string newVendor, double newPurchaseAmmount)
+{
+    date_ = newDate;
+    transactionNumber_ = newTransactionNumber;
+    vendor_ = newVendor;
+    purchaseAmmount_ = newPurchaseAmmount;
+}
+
+void Transaction::setDate(string newDate)
+{
+    date_ = newDate;
+}
+
+void Transaction::setTransactionNumber(int newTransactionNumber)
+{
+    transactionNumber_ = newTransactionNumber;
+}
+
+void Transaction::setVendor(string newVendor)
+{
+    vendor_ = newVendor;
+}
+
+void Transaction::setPurchaseAmmount(double newPurchaseAmmount)
+{
+    purchaseAmmount_ = newPurchaseAmmount;    
+}
+
+string Transaction::getDate()
+{
+    return date_;
+}
+
+int Transaction::getTransactionNumber()
+{
+    return transactionNumber_;
+}
+
+string Transaction::getVendor()
+{
+    return vendor_;
+}
+
+double Transaction::getPurchaseAmmount()
+{
+    return purchaseAmmount_;
+}
+
+// void Transaction::Populate()
+// {
+//      ifstream transactions("trans.txt");
+    
+//   cout << "hey transaction Populate is working\n";
+//     getline(transactions, , ':');
+// }
 
 Account::Account()
 {
@@ -105,6 +176,53 @@ void Account::setCurrentBalance(double newCurrentBalance)
 {
     currentBalance_ = newCurrentBalance;
 }
+/*
+* this functuion below is going through the account text file and putting values into each of the variables
+* it then prints each to prove that it was populated
+*/
+void Account::populate()
+{
+    ifstream accounts("account.txt");
+    
+   
+    while(!accounts.eof())
+    {
+        accounts >> cardNumber_ >> firstName_ >> lastName_ >> type_ >> currentBalance_;
+        cout << cardNumber_<< ' ' << firstName_ << ' ' << lastName_ << ' ' << type_ << ' ' << currentBalance_ << endl;
+    }
+    accounts.close();
+}
+
+void GoldCard::AllowTransaction()
+{
+    cout << "i am valid, you are within your balance, for the gold card\n";
+}
+
+void GoldCard::DenialSummary()
+{
+     cout << "you dont have enough money in here, for the gold card\n";
+}
+
+void PlatinumCard::AllowTransaction()
+{
+    
+    cout << "i am valid, you are within your balance, for the platinum card\n";
+}
+
+void PlatinumCard::DenialSummary()
+{
+     cout << "you dont have enough money in here, for the platinum card\n";
+}
+
+void CorporateCard::AllowTransaction()
+{
+    cout << "i am valid, you are within your balance, for the corperate card\n";
+}
+
+void CorporateCard::DenialSummary()
+{
+     cout << "you dont have enough money in here, for the corperate card\n";
+}
 /* 
 this fuction will take in the card number and check to see if it is a valid card type, one of the four major card types. it will take in the first couple digits of the card number
 and process if it is or isnt a valid bin number upon completion it will cout if it is a valid card type and what vendor its from and if it isnt it will say unknown card type.
@@ -113,17 +231,17 @@ bool Account::isValidBin(string newCardNumber)
 {
     int binNum;
         stringstream sso; 
-        if(newCardNumber[0] == '3' && (newCardNumber[1] == '4' || newCardNumber[1] == '7'))
+        if(cardNumber_[0] == '3' && (cardNumber_[1] == '4' || cardNumber_[1] == '7'))
         {
             //cout<<"ae"<<endl;
             return true;
         }
-        else if (newCardNumber[0] == '6')
+        else if (cardNumber_[0] == '6')
         {
             // use logic to make sure the rest of the integers are valid
            
             
-            sso << newCardNumber[0] << newCardNumber[1] << newCardNumber[2] << newCardNumber[3];
+            sso << cardNumber_[0] << cardNumber_[1] << cardNumber_[2] << cardNumber_[3];
             sso >> binNum;
             if(binNum == 6011)
             {
@@ -132,7 +250,7 @@ bool Account::isValidBin(string newCardNumber)
                 return true;
             }
             
-            sso << newCardNumber[0] << newCardNumber[1] << newCardNumber[2] << newCardNumber[3] << newCardNumber[4] << newCardNumber[5];
+            sso << cardNumber_[0] << cardNumber_[1] << cardNumber_[2] << cardNumber_[3] << cardNumber_[4] << cardNumber_[5];
             sso >> binNum;
              if (binNum >= 622126 && binNum <= 622925)
             {
@@ -141,7 +259,7 @@ bool Account::isValidBin(string newCardNumber)
                 return true;
             }
             
-            sso << newCardNumber[0] << newCardNumber[1] << newCardNumber[2];
+            sso << cardNumber_[0] << cardNumber_[1] << cardNumber_[2];
             sso >> binNum;
              if (binNum >= 644 && binNum <= 649)
             {
@@ -149,7 +267,7 @@ bool Account::isValidBin(string newCardNumber)
                 
                 return true;
             }
-            sso << newCardNumber[0] << newCardNumber[1];
+            sso << cardNumber_[0] << cardNumber_[1];
             sso >> binNum;
              if (binNum == 65)
             {
@@ -163,9 +281,9 @@ bool Account::isValidBin(string newCardNumber)
                 return false;
             }
         }
-        else if (newCardNumber[0] == '5' )
+        else if (cardNumber_[0] == '5' )
         {
-            sso << newCardNumber[0] << newCardNumber[1];
+            sso << cardNumber_[0] << cardNumber_[1];
             sso >> binNum;
             if(binNum >= 51 && binNum <= 55)
             {
@@ -178,7 +296,7 @@ bool Account::isValidBin(string newCardNumber)
                 return false;
             }
         }
-        else if (newCardNumber[0] == '4')
+        else if (cardNumber_[0] == '4')
         {
             //cout<<"visa"<<endl;
             return true;
@@ -194,30 +312,30 @@ this checks to see if the card is valid, even if a bin number is valid it will h
 the card number to check to see if it is valid, if its valid it will return true if it's invalid it will return false.
 */
 
-bool Account::isValidCard(string newCardNumber)
+bool Account::isValidCard(string cardNumber_)
 {
-    int cardNumberS[newCardNumber.length() - 1];
+    int cardNumberS[cardNumber_.length() - 1];
    // cout << "got dumped\n";
     
 
         int sum = 0;
         int evenSum, oddSum = 0;
        // cards >> cardNumber;
-        cout << newCardNumber << endl;
+        //cout << cardNumber_ << endl;
         // cout << cardNumber<<endl;
         // int cardNumberS[cardNumber.length() - 1];
         // cout << "got dumped\n";
     
         
-        for(int i=0; i< newCardNumber.size(); i++)
+        for(int i=0; i< cardNumber_.size(); i++)
     {
-        cardNumberS[i]= newCardNumber.at(i)- 48;
+        cardNumberS[i]= cardNumber_.at(i)- 48;
         //cout<< "im converted to an int\n";
     }
        
        
         // luhn algorithm thanks to https://youtu.be/A3Kqj2dbgqA
-        for (int i = newCardNumber.size() - 1; i>= 0; i--)
+        for (int i = cardNumber_.size() - 1; i>= 0; i--)
         {
             
             int p;
@@ -254,105 +372,4 @@ bool Account::isValidCard(string newCardNumber)
             //cout<<"false, invalid luhn!!\n";
            return false;
         }
-}
-
-/*
-these functions will go through and lay out which transactions are allowed and which arent, it will also print out the transaction list for each card type, using polymorphism the 
-program can tell which one to use in which situation. I have several different functions called the same thing, but they will do things differently depending on the card type.
-*/
-bool GoldCard::AllowTransaction( )
-{
-    if(newCurrentBalance >= 3000.00)
-    {
-        newCurrentBalance = newCurrentBalance - purchaseAmmount_;
-        return true;
-    }
-    else
-        return false;
-}
-
-void GoldCard::DenialSummary()
-{
-    cout << "your card was denied because: \n";
-}
-
-void GoldCard::PrintStatment()
-{
-   
-}
-
-// bool PlatinumCard::AllowTransaction()
-// {
-//     if(newCurrentBalance >= 5000.00)
-//     {
-//       newCurrentBalance = newCurrentBalance - purchaseAmmount_;
-//         return true;
-//     }
-//     else if(currentBalance_ >=6000.00)
-//     {
-//         newCurrentBalance = newCurrentBalance - purchaseAmmount_;
-//         return true;
-//     }
-//     else
-//         return false; 
-// }
-
-// void PlatinumCard::DenialSummary()
-// {
-//     cout << "your card was denied because: \n";
-// }
-
-
-// void PlatinumCard::PrintStatment()
-// {
-    
-// }
-
-// bool CorporateCard::AllowTransaction()
-// {
-//     if(newCurrentBalance >= 10000.00)
-//     {
-//         newCurrentBalance = newCurrentBalance - purchaseAmmount_;
-//         return true;
-//     }
-//     else if(newCurrentBalance >=15000.00)
-//     {
-//         newCurrentBalance = newCurrentBalance - purchaseAmmount_;
-//         return true;
-//     }
-//     else
-//         return false; 
-// }
-
-// void CorporateCard::DenialSummary()
-// {
-//     cout << "your card was denied because: \n";
-// }
-
-
-// void CorporateCard::PrintStatment()
-// {
-    
-// }
-
-int main()
-{
-    ifstream accounts("account.txt");
-    Account AccountOne;
-   
-    while(!accounts.eof())
-    {
-        accounts >> newCardNumber >> newFirstName >> newLastName >> newType >> newCurrentBalance;
-    
-        if (isValidBin()== true && isValidCard() == true)
-        {
-            
-        }
-        else
-        {
-       
-        }
-    }
-    
-    return 0;
 }
