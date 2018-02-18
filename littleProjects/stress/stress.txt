@@ -1,0 +1,5 @@
+Home 4
+School 10
+work 6
+life 7
+relationships 3
