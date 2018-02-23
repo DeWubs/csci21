@@ -85,32 +85,48 @@ double Transaction::getPurchaseAmmount()
 
 Account::Account()
 {
-    firstName_ = "no name";
+    transactionList.resize(0);
+    firstName_ = "no firstname";
+    lastName_ = "no Lastname";
+    type_ = "no type";
+    cardNumber_ = "no card number";
+    currentBalance_ = 0.0;
 }
 
 Account::Account(string newFirstName)
 {
+    transactionList.resize(0);
     firstName_ = newFirstName;
     lastName_ = "no Lastname";
+     type_ = "no type";
+    cardNumber_ = "no card number";
+    currentBalance_ = 0.0;
 }
+
 
 Account::Account(string newFirstName, string newLastName)
 {
+    transactionList.resize(0);
     firstName_ = newFirstName;
     lastName_ = newLastName;
     type_ = "no type";
+    cardNumber_ = "no card number";
+    currentBalance_ = 0.0;
 }
 
 Account::Account(string newFirstName, string newLastName, string newType)
 {
+    transactionList.resize(0);
     firstName_ = newFirstName;
     lastName_ = newLastName;
     type_ = newType;
     cardNumber_ = "no card number";
+     currentBalance_ = 0.0;
 }
 
 Account::Account(string newFirstName, string newLastName, string newType, string newCardNumber)
 {
+    transactionList.resize(0);
     firstName_ = newFirstName;
     lastName_ = newLastName;
     type_ = newType;
@@ -120,6 +136,7 @@ Account::Account(string newFirstName, string newLastName, string newType, string
 
 Account::Account(string newFirstName, string newLastName, string newType, string newCardNumber, double newCurrentBalance)
 {
+    transactionList.resize(0);
     firstName_ = newFirstName;
     lastName_ = newLastName;
     type_ = newType;
@@ -176,21 +193,25 @@ void Account::setCurrentBalance(double newCurrentBalance)
 {
     currentBalance_ = newCurrentBalance;
 }
-/*
-* this functuion below is going through the account text file and putting values into each of the variables
-* it then prints each to prove that it was populated
-*/
-void Account::populate()
+
+void Account::setTransaction(Transaction &T)
 {
-    ifstream accounts("account.txt");
-    
-   
-    while(!accounts.eof())
+    Transaction newT;
+    //cout<<"Vendor "<<T.getVendor()<<" amt: "<<T.getPurchaseAmmount()<<" Date: "<<T.getDate()<<endl;
+    newT.setVendor(T.getVendor());
+    newT.setPurchaseAmmount(T.getPurchaseAmmount());
+    newT.setDate(T.getDate());
+    newT.setTransactionNumber(T.getTransactionNumber());
+    transactionList.push_back(newT);
+}
+
+void Account::getTransaction(){
+    cout<<transactionList.size()<<endl;
+    for (int i=0;i<transactionList.size(); i++)
     {
-        accounts >> cardNumber_ >> firstName_ >> lastName_ >> type_ >> currentBalance_;
-        cout << cardNumber_<< ' ' << firstName_ << ' ' << lastName_ << ' ' << type_ << ' ' << currentBalance_ << endl;
+        cout<<transactionList[i].getVendor()<<" ";
+        cout<<transactionList[i].getPurchaseAmmount()<<endl;
     }
-    accounts.close();
 }
 
 void GoldCard::AllowTransaction()
@@ -373,3 +394,4 @@ bool Account::isValidCard(string cardNumber_)
            return false;
         }
 }
+

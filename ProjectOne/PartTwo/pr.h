@@ -21,6 +21,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
+
 
 using namespace std;
 
@@ -78,9 +80,9 @@ class Account
         void setType(string newType);
         void setCardNumber(string newCardNumber);
         void setCurrentBalance(double newCurrentBalance);
+        void setTransaction(Transaction &T);
         
-        void populate();
-        
+        void getTransaction();
         string getFirstName();
         string getLastName();
         string getType();
