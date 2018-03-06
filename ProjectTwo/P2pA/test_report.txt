@@ -1,0 +1,44 @@
+when working properly the code will do this
+You are playing a game of battleship, sink the other player's ships before they kill you
+this is the board you will be tracking your progress with
+  0 1 2 3 4 5 6 7 8 9
+A o o o o o o o o o o
+B o o o o o o o o o o
+C o o o o o o o o o o
+D o o o o o o o o o o
+E o o o o o o o o o o
+F o o o o o o o o o o
+G o o o o o o o o o o
+H o o o o o o o o o o
+I o o o o o o o o o o
+J o o o o o o o o o o
+K o o o o o o o o o o
+
+[1]: import map file
+[2]: Play!
+[3]: quit game
+// caese one
+1
+please put in the file name
+// case two
+make an order! Say a position 1-100, remember its a 10 X 10 grid
+//here you put the order lets say 1
+1
+miss sir!
+
+  0 1 2 3 4 5 6 7 8 9
+A M o o o o o o o o o
+B o o o o o o o o o o
+C o o o o o o o o o o
+D o o o o o o o o o o
+E o o o o o o o o o o
+F o o o o o o o o o o
+G o o o o o o o o o o
+H o o o o o o o o o o
+I o o o o o o o o o o
+J o o o o o o o o o o
+K o o o o o o o o o o
+
+[1]: import map file
+[2]: Play!
+[3]: quit game
