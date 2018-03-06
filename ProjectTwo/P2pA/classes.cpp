@@ -74,6 +74,13 @@ void Human::attack(int newAttack){
         cout << "Direct hit!"<< endl;
         Player_Board.displayBoard1();
     }
+    else if(Player_Board.getBoard().at(newAttack - 1) == 'o'){
+        Player_Board.getBoard().at(newAttack - 1) = 'M';
+        cout << "you Missed!"<< endl;
+        Player_Board.displayBoard1();
+    }
+    else
+        cout<< "put in a valid command!"<< endl;
     // if its an o replace it with m on the tracking board
     // if its an s replace it with h on the tracking board and subtract one from hitpoints.
 }
