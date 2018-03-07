@@ -45,6 +45,7 @@ int main() {
                  cout << *tail;
                  tail--;
           }
+          cout << *tail;
      }
      cout << endl;
 
