@@ -1,0 +1,84 @@
+list a list
+stack remove the last thing first
+queue its a line first position gets removed first and the rest get pushed up
+tree a structure that we will go over
+four concepts that we will eventually make code
+STL does all this stuff for you, first we are going to use the STL's then make our own.
+i have to do the labs this week really bad...
+now for today's stuff
+pointers, we are going to work on pointers
+pointers go to a memory adress
+comment this to peices
+###################################################################################################
+/*
+ * Name        : delete.cpp
+ * Author      : Luke Sathrum
+ * Description : Various examples of deleting memory
+ */
+
+#include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
+
+int main() {
+  string garbage;
+  int *p1, *p2, *array;
+  int **multi_array;
+
+  cout << "Creating Dynamic Stuff\n";
+
+  p1 = new int;
+  *p1 = 5;
+  cout << "*p1  = " << *p1 << endl;
+
+  p2 = p1;
+
+  array = new int[5];
+// this is taking the array that was just created and setting its size to zero, its zeroing it out
+  array[0] = 0;
+  cout << "a[0] = " << array[0] << endl;
+// its taking the array and putting in values up to the array sizze
+  multi_array = new int*[5];
+  for (int i = 0; i < 5; i++) {
+    multi_array[i] = new int[3];
+  }
+
+  cout << "Finished Creating Dynamic Stuff\n";
+  cout << "Press enter to continue... ";
+  getline(cin, garbage);
+
+  cout << "Deleting Dynamic Stuff\n";
+
+  delete p1;
+
+  cout << "*p1  = " << *p1 << endl;
+  cout << "*p2  = " << *p1 << endl;
+// setting p1 and p2 to null which is sort of a fancy way of zeroing it out nut with nothing.
+  p1 = NULL;
+  p2 = NULL;
+// this one is using a delete array which is doing exactly what it sounds like its doing
+  delete[] array;
+  cout << "array[0] = " << array[0] << endl;
+// this is making the array equal to null kinda like a zero but its its nothing
+  array = NULL;
+
+  for (int i = 0; i < 5; i++)
+    delete[] multi_array[i];
+  delete[] multi_array;
+// setting the multi_array to null, to nothing
+  multi_array = NULL;
+// if p1 is not null or empty it will cout the memory adress of p1 = p2
+//if p2 is not null or empty it will cout the memory adress of p2 = p1
+  if (p1 != NULL)
+    cout << "*p1  = " << *p1 << endl;
+  if (p2 != NULL)
+    cout << "*p2  = " << *p1 << endl;
+
+  cout << "Finished Deleting Dynamic Stuff\n";
+  cout << "Press enter to continue... ";
+  getline(cin, garbage);
+
+  return 0;
+}

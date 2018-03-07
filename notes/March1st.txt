@@ -1,0 +1,24 @@
+notes from class
+were starting with the stl linked list,
+list created outside of the the class it will encapsulate it as a node
+think it as a box that holds the stuff in the class, also holds next.
+a->c->m
+^      ^
+head   tail
+head points to null if there is nothing in the list
+"basically making a list, its legitimatley what its doing..."
+example list pesudo cody
+lis <contacts>myContacts;
+push_back(a);
+        (b);
+        (m);
+myContacts.insert(it, b);// "it" is an itterator i think, its just its name?...
+ǝᴉp oʇ ʇuɐʍ ʇsnɾ ɹǝʌǝ noʎ op
+what's a queue?
+its a waithing list first in first out, not nececcarily ordered. always add at the tail
+always remove things from the front.
+what is a stack
+adds to the end and removes from the end, just like a stack of pancakes. its the way that all computers
+work.
+nodes are like objects of the same data type.
+node e{list<contacts> myContacts
