@@ -36,14 +36,14 @@ class Player{
         int board_attack_;
         Board Player_Board;
     public:
-   // virtual void attack(){}
+        virtual void attack(){};
 };
 
 class Human : protected Player{
     private:
         Board track_Board_;
     public:
-        void attack(int newAttack);
+       virtual void attack(int num );
         Board get_Track_Board();
     
 };

@@ -66,21 +66,17 @@ Board Human::get_Track_Board(){
 }
 //this function will take a parameter and use it to determine if an attack was a hit or a miss, if it is a miss it will replace the 'o' on
 //the board with a 'M', if it is a hit it will replace the 'S' on the board with a 'H'
-void Human::attack(int newAttack){
+void Human::attack(int num){
+
     // check to see if the position on the board is an s or an o
-    if(Player_Board.getBoard().at(newAttack - 1) == 'S')
+    if(Player_Board.getBoard().at(num - 1) == 'S')
     {
-        Player_Board.getBoard().at(newAttack - 1) = 'H';
+        Player_Board.getBoard().at(num - 1) = 'H';
         cout << "Direct hit!"<< endl;
-        Player_Board.displayBoard1();
+
     }
-    else if(Player_Board.getBoard().at(newAttack - 1) == 'o'){
-        Player_Board.getBoard().at(newAttack - 1) = 'M';
-        cout << "you Missed!"<< endl;
-        Player_Board.displayBoard1();
+    else 
+    {
+        Player_Board.getBoard().at(num - 1) ='M';
     }
-    else
-        cout<< "put in a valid command!"<< endl;
-    // if its an o replace it with m on the tracking board
-    // if its an s replace it with h on the tracking board and subtract one from hitpoints.
 }

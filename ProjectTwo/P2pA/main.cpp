@@ -13,6 +13,7 @@ int main(){
     while (option != 3){
         string fileName;
         int command;
+        
         switch(option)
         {
             case 1:
@@ -30,8 +31,9 @@ int main(){
                 //b1.displayBoard1();
                 //cout << endl << endl;
                 //h1.Player_Board.displayBoard1();
-                cout << "make an order! Say a position 1-100, remember its a 10 X 10 grid" << endl;
+                cout << "make an order! Say a position" << endl;
                 cin >> command;
+            
                 h1.attack(command);
                 cout << endl;
                 
