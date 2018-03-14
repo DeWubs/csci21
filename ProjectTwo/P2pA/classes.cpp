@@ -69,6 +69,10 @@ Board Human::get_Track_Board(){
 void Human::attack(int num){
 
     // check to see if the position on the board is an s or an o
+    for(int i = 0; i < 100; i++){
+    
+    cout << Player_Board.getBoard().at(i) << " ";
+    }
     if(Player_Board.getBoard().at(num - 1) == 'S')
     {
         Player_Board.getBoard().at(num - 1) = 'H';

@@ -10,7 +10,7 @@ List::List(){
 }
 
 void List::addNode(int addData){
-    node Ptr n = new node;
+    node *n = new node;
     n ->next = NULL;
     n->data = addData;
     
@@ -27,7 +27,7 @@ void List::addNode(int addData){
 }
 
 void List::deleteNode(int delData){
-    nodePtr delPtr = NULL;
+    node* delPtr = NULL;
     temp = head;
     curr = head;
     while(curr != NULL && curr->data != delData){
@@ -36,12 +36,12 @@ void List::deleteNode(int delData){
     }
     if(curr == NULL){
         cout << delData << " was not in the list\n";
-        delete delPtr
+        delete delPtr;
     }
     else{
         delPtr = curr;
         curr = curr->next;
-        tem->next = curr;
+        temp->next = curr;
         delete delPtr;
         cout << "the value " << delData << " was deleted\n"; 
     }

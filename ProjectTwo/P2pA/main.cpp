@@ -1,6 +1,13 @@
 #include "classes.h"
 int getOption();
-int main(){
+int main(int argc, char* argv[]){
+   
+
+   // Check number of arguments
+   if (argc != 2) {
+      cout << endl << "input FileName next time" << endl;
+      return 1; // 1 indicates error
+   }
     Board b1;
     Board b2;
     Human h1;
@@ -11,15 +18,15 @@ int main(){
     cout << endl << endl;
     option = getOption();
     while (option != 3){
-        string fileName;
+        
         int command;
         
         switch(option)
         {
             case 1:
-                cout << "PLease put in the file you wish to use, make sure it is 100 percent accurate." << endl;
-                cin >> fileName;
-                b1.setBoard1(fileName);
+                // cout << "PLease put in the file you wish to use, make sure it is 100 percent accurate." << endl;
+                // cin >> fileName;
+                b1.setBoard1(argv[1]);
                 cout <<"this is the file you put in" << endl;
                 b1.displayBoard1();
                 break;
@@ -50,7 +57,7 @@ int getOption()
 {
     int choice;
     
-    cout <<"[1]: import map file"<< endl;
+    cout <<"[1]: Show imported Board"<< endl;
     cout <<"[2]: play!"<< endl;
     cout <<"[3]: quit game"<< endl;
     

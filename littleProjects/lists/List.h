@@ -1,11 +1,11 @@
 #ifndef LIST_H
 #define LIST_H
-class list{
+ struct node{
+        int data;
+        node* next;
+    };
+class List{
     private:
-       struct node{
-            int data;
-            node* next;
-        };
         node* head;
         node* curr;
         node* temp;

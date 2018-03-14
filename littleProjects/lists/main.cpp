@@ -2,7 +2,7 @@
 #include "List.h"
 using namespace std;
 int main(){
-    list Robert;
+    List Robert;
     Robert.addNode(15);
     Robert.addNode(55);
     Robert.addNode(11);
