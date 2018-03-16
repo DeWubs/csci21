@@ -42,3 +42,12 @@ K o o o o o o o o o o
 [1]: import map file
 [2]: Play!
 [3]: quit game
+
+i have tested various numbers outside of the options shown (1-3) to see if it would do something, it handled it correctly 
+and prompted the user to put in a number 1-3
+pressing 1 correctly shows the board and it sets the humans tracking board
+pressing 2 correctly prompts the user for an attack and displays the tracking board and correctly handles inputs 1-100 and
+replaces positions with H or M depending on if it were a hit or not.
+case 3 correctly ends the program
+
+for these reasons i belive that my code works.

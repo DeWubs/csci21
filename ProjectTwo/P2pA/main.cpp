@@ -13,8 +13,8 @@ int main(int argc, char* argv[]){
     Human h1;
     int option;
     cout <<"You are playing a game of battleship, sink the other player's ships before they kill you"<< endl << endl;
-    cout <<"this is the board you will be tracking your progress with."<< endl;
-    b1.displayBoard1();
+    //cout <<"this is the board you will be tracking your progress with."<< endl;
+    //b1.displayBoard1();
     cout << endl << endl;
     option = getOption();
     while (option != 3){
@@ -27,6 +27,7 @@ int main(int argc, char* argv[]){
                 // cout << "PLease put in the file you wish to use, make sure it is 100 percent accurate." << endl;
                 // cin >> fileName;
                 b1.setBoard1(argv[1]);
+                h1.setBoard(b1.getBoard());
                 cout <<"this is the file you put in" << endl;
                 b1.displayBoard1();
                 break;
@@ -40,9 +41,10 @@ int main(int argc, char* argv[]){
                 //h1.Player_Board.displayBoard1();
                 cout << "make an order! Say a position" << endl;
                 cin >> command;
-            
+                
                 h1.attack(command);
                 cout << endl;
+                
                 
                 
                 
@@ -53,11 +55,13 @@ int main(int argc, char* argv[]){
     
     return 0;
 }
+// returns an integer
+//displays a menu for the user to navigate
 int getOption()
 {
     int choice;
     
-    cout <<"[1]: Show imported Board"<< endl;
+    cout <<"[1]: Show imported Board, Use this one first please!"<< endl;
     cout <<"[2]: play!"<< endl;
     cout <<"[3]: quit game"<< endl;
     

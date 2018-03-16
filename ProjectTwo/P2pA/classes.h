@@ -25,8 +25,12 @@ class Board{
         Board();
         Board(vector <char> newVector);
         void setBoard1(string newFile);
+        void setBoard1(vector <char> newBoard);
         void displayBoard1();
         vector <char> getBoard();
+        char getPosition(int newPosition);
+        void hit(int newPosition);
+        void miss(int newPosition);
 };
 //#endif
 
@@ -43,7 +47,10 @@ class Human : protected Player{
     private:
         Board track_Board_;
     public:
-       virtual void attack(int num );
-        Board get_Track_Board();
+        //Human();
+        //Human(vector <char> new_Player_Board);
+        void setBoard(vector <char> b);
+        virtual void attack(int num );
+        // vector <char> get_track_Board();
     
 };
