@@ -1,11 +1,15 @@
-list: node.o test1.o
-	g++ -Wall -std=c++11 -g -o list node.o test1.o
+stacke:  node.o stack.o test2.o
+	g++ -Wall -std=c++11 -g -o stacke node.o stack.o test2.o 
 
-node: node.cpp
+stack: stack.cpp
 	g++ -Wall -std=c++11 -g -c node.cpp
-
-test1: test1.cpp
-	g++ -Wall -std=c++11 -g -c test1.cpp
+	g++ -Wall -std=c++11 -g -c stack.cpp
+	g++ -Wall -std=c++11 -g -c test2.cpp
+ 	
 
 clean:
-	rm *.o list
+	rm *.o stacke
+	
+	
+	
+	
