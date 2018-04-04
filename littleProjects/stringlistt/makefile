@@ -1,14 +1,17 @@
-stacke:  node.o stack.o test2.o
-	g++ -Wall -std=c++11 -g -o stacke node.o stack.o test2.o 
+stackTest:  node stack test 
+	g++ -Wall -std=c++11 -g -o stackTest node.o stack.o test.o 
+
+node: node.cpp
+	g++ -Wall -std=c++11 -g -c node.cpp
 
 stack: stack.cpp
-	g++ -Wall -std=c++11 -g -c node.cpp
 	g++ -Wall -std=c++11 -g -c stack.cpp
-	g++ -Wall -std=c++11 -g -c test2.cpp
- 	
+
+test: test.cpp
+	g++ -Wall -std=c++11 -g -c test.cpp
 
 clean:
-	rm *.o stacke
+	rm *.o stackTest
 	
 	
 	

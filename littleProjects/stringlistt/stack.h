@@ -5,24 +5,20 @@ using namespace std;
 #include "node.h"
 #ifndef STACK_H
 #define STACK_H
-class stack{
+class Stack{
     private:
-        string contents_;
-        Node *next_;
+       Node *top_;
+       int size_;
         
     
     public:
-        stack(){
-            contents_ ="";
-            next_ = NULL
-        }
-        Stack(string contents, Node* next);
-        ~Stack();
-        
-        bool empty();
-        void push(string value);
-        void pop(string value);
-        void print();
+       Stack();
+       ~Stack();
+       void push(string value);
+       string pop();
+       string print();
+       bool empty();
+       int size();
 };
 
 #endif
