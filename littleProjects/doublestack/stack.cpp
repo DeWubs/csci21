@@ -66,4 +66,15 @@ bool Stack::empty(){
 int Stack::size(){
     return size_;
 }
-
+string Stack::at(int index) {
+    iterator_ = top_;
+    if(size() > index) {
+        for(int i = 0; i < index; i++) {
+            iterator_ = iterator_->next_node();
+        }
+        return iterator_->contents();
+    }
+    else {
+        return "ERROR";
+    }
+}
