@@ -14,6 +14,8 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <queue>
+#include <ctime>
 
 
 using namespace std;
@@ -53,4 +55,23 @@ class Human : protected Player{
         virtual void attack(int num );
         // vector <char> get_track_Board();
     
+};
+
+class Computer: public Player{
+    private:
+        Board track_Board_C;
+        queue<int> attackNums_;
+        
+        int attackNum_;
+        
+        bool first_;
+        
+    
+    public:
+        Computer();
+        virtual void attack(int num);
+        void setBoardC(vector <char> c);
+        void turn();
+        int getAttackNum_();
+        
 };

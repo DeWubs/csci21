@@ -131,3 +131,107 @@ void Human::attack(int num){
         track_Board_.displayBoard1();
     }
 }
+//################################################################################################################################
+Computer::Computer(){
+    first_ = true;
+}
+
+int Computer::getAttackNum_(){
+    return attackNum_;
+}
+
+
+void Computer::setBoardC(vector <char> c){
+    Player_Board.setBoard1(c);
+}
+
+void Computer::attack(int num){
+    if(Player_Board.getPosition(num) == 'S'){
+        track_Board_C.hit(num);
+        cout<<"The Computer attacked position: " << num << endl;
+        track_Board_C.displayBoard1();
+    }
+    else{
+        track_Board_C.miss(num);
+        cout<<"The Computer attacked position: " << num << endl;
+        track_Board_C.displayBoard1();
+    }
+    
+}
+
+void Computer::turn(){
+    srand(time(NULL));
+    
+    if(first_){
+        attackNums_.push(rand() % 10);
+        first_ = false;
+    }
+    
+    if(attackNums_.size() == 0){
+        bool newArea = false;
+        int testAttack = rand() % 10;
+        while(newArea = false){
+            if(track_Board_C.getPosition(testAttack) == 'S' || track_Board_C.getPosition(testAttack) == 'o'){
+                newArea = true;
+            }
+        
+             else{
+            testAttack = rand() % 10;
+             }
+        }
+    attackNums_.pop();
+    attackNums_.push(testAttack);
+    }
+    
+    else{
+        if(track_Board_C.getPosition(attackNums_.front()) == 'o'){
+            bool newArea = false;
+            int testAttack = rand() % 10;
+            while(newArea = false){
+                if(track_Board_C.getPosition(testAttack) == 'S' || track_Board_C.getPosition(testAttack) == 'o'){
+                    newArea = true;
+                }
+                else{
+                    testAttack = rand() % 10;
+                }
+            }
+            attackNums_.pop();
+            attackNums_.push(testAttack);
+        }
+        else if(track_Board_C.getPosition(attackNums_.front()) == 'S'){
+         //	checks for top neighbor
+        //	Ensure it is not on the edge
+        if(attackNums_.front() > 0) { 
+          //  Ensure it has not already been attacked
+         if(track_Board_C.getPosition(attackNums_.front() - 1) == 'S' || track_Board_C.getPosition(attackNums_.front() - 1) == 'o' ) {
+               attackNums_.push(attackNums_.front() - 1);
+             }
+         }
+    	//checks for right neighbor
+        //Ensure it is not on the edge
+        if(attackNums_.front() < 100) {
+            //Ensure it has not already been attacked
+    	    if(track_Board_C.getPosition(attackNums_.front() - 1) == 'S' || track_Board_C.getPosition(attackNums_.front() - 1) == 'o' ) {
+               attackNums_.push(attackNums_.front() + 1);
+    	    }
+        }
+    	//checks for bottom neighbor
+    	//Ensure it is not on the edge
+        if(attackNums_.front() < 100) {
+            //Ensure it has not already been attacked
+        	if(track_Board_C.getPosition(attackNums_.front() - 1) == 'S' || track_Board_C.getPosition(attackNums_.front() - 1) == 'o' ) {
+                attackNums_.push(attackNums_.front() + 10);
+        	}
+        }
+        //checks for left neighbor
+        //Ensure it is not on the edge
+        if(attackNums_.front() > 0) {
+            if(track_Board_C.getPosition(attackNums_.front() - 1) == 'S' || track_Board_C.getPosition(attackNums_.front() - 1) == 'o' ) {
+               attackNums_.push(attackNums_.front() - 1);
+            }
+        }
+        attackNums_.pop();
+    }
+        attackNum_ = attackNums_.front();
+    }
+}

@@ -4,13 +4,41 @@ int main(int argc, char* argv[]){
    
 
    // Check number of arguments
-   if (argc != 2) {
-      cout << endl << "input FileName next time" << endl;
-      return 1; // 1 indicates error
-   }
+   int turn = 0;
+    if(argc == 4) {
+        if(argv[3] == string("COMPUTER")) {
+            turn = 0;
+        }
+        else if(argv[3] == string("HUMAN")) {
+            turn = 1;
+        }
+        else {
+            cout << "Enter HUMAN, COMPUTER, or nothing." << endl;
+            return 1;
+        }
+    }
+    else if(argc == 3) {
+        //if no value inputed for human, make it a random turn
+        time_t timer; 
+        // whose turn it is, true if player turn, false if computers turn
+        srand(time(&timer));  //seed the clock to generate "random" numbers each time
+        if(rand() % 2 == 0) {
+            //player goes first
+            turn = 1; 
+        }
+        else {
+            //Player goes last
+            turn = 0; 
+        }
+    }
+    else if(argc < 3) {
+        cout << "Please put fileNames next time." << endl;
+        return 1;
+    }
     Board b1;
     Board b2;
     Human h1;
+    Computer c1;
     int option;
     cout <<"You are playing a game of battleship, sink the other player's ships before they kill you"<< endl << endl;
     //cout <<"this is the board you will be tracking your progress with."<< endl;
@@ -24,9 +52,9 @@ int main(int argc, char* argv[]){
         switch(option)
         {
             case 1:
-                // cout << "PLease put in the file you wish to use, make sure it is 100 percent accurate." << endl;
-                // cin >> fileName;
+                
                 b1.setBoard1(argv[1]);
+                b2.setBoard1(argv[2]);
                 h1.setBoard(b1.getBoard());
                 cout <<"this is the file you put in" << endl;
                 b1.displayBoard1();
@@ -34,19 +62,12 @@ int main(int argc, char* argv[]){
             case 2:
                 cout << "tracking board"<< endl;
                 b2.displayBoard1();
-                //cout << endl << endl;
-                //cout << "your board" << endl;
-                //b1.displayBoard1();
-                //cout << endl << endl;
-                //h1.Player_Board.displayBoard1();
+                
                 cout << "make an order! Say a position" << endl;
                 cin >> command;
                 
                 h1.attack(command);
                 cout << endl;
-                
-                
-                
                 
                 break;
         }
