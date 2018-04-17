@@ -1,7 +1,7 @@
 #include "classes.h"
 int getOption();
 int main(int argc, char* argv[]){
-   
+ srand(time(NULL));   
 
    // Check number of arguments
    int turn = 0;
@@ -37,6 +37,7 @@ int main(int argc, char* argv[]){
     }
     Board b1;
     Board b2;
+    Board b3;
     Human h1;
     Computer c1;
     int option;
@@ -54,10 +55,11 @@ int main(int argc, char* argv[]){
             case 1:
                 
                 b1.setBoard1(argv[1]);
-                b2.setBoard1(argv[2]);
+                b3.setBoard1(argv[2]);
                 h1.setBoard(b1.getBoard());
-                cout <<"this is the file you put in" << endl;
-                b1.displayBoard1();
+                c1.setBoardC(b3.getBoard());
+                cout <<"The boards are set!" << endl;
+                //b1.displayBoard1();
                 break;
             case 2:
                 cout << "tracking board"<< endl;
@@ -68,7 +70,9 @@ int main(int argc, char* argv[]){
                 
                 h1.attack(command);
                 cout << endl;
-                
+                cout<< "computer's turn" << endl;
+                c1.turn();
+               // c1.attack(c1.getAttackNum_());
                 break;
         }
         option = getOption();
@@ -82,7 +86,7 @@ int getOption()
 {
     int choice;
     
-    cout <<"[1]: Show imported Board, Use this one first please!"<< endl;
+    cout <<"[1]: Set the boards, Use this one first please!"<< endl;
     cout <<"[2]: play!"<< endl;
     cout <<"[3]: quit game"<< endl;
     

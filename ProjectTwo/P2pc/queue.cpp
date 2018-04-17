@@ -43,8 +43,6 @@ void Queue<Type>::push(Type value){
     size_++;
 }
 
-
-
 template<typename Type>
 Type Queue<Type>::pop(){
    
