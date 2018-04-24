@@ -18,8 +18,7 @@ using namespace std;
  
 // To heapify a subtree rooted with node i which is
 // an index in arry[]. n is size of heap
-void heapify(int arry[], int n, int i)
-{
+void heapify(int arry[], int n, int i){
     int largest = i;  // Initialize largest as root
     int l = 2*i + 1;  // left = 2*i + 1
     int r = 2*i + 2;  // right = 2*i + 2
@@ -43,8 +42,7 @@ void heapify(int arry[], int n, int i)
 }
  
 // main function to do heap sort
-void heapSort(int arry[], int n)
-{
+void heapSort(int arry[], int n){
     // Build heap (rearrange array)
     for (int i = n / 2 - 1; i >= 0; i--)
         heapify(arry, n, i);
@@ -61,15 +59,13 @@ void heapSort(int arry[], int n)
 }
  
 /* A function to print array of size n */
-void displayArray(int arry[], int n)
-{
+void displayArray(int arry[], int n){
     for (int i=0; i<n; ++i)
         cout << arry[i] << " ";
     cout << "\n";
 }
  
-int main()
-{
+int main(){
     int arry[] = {100, 1, 53, 20, 6, 5, 21, 55, 15, 32};
     int n = sizeof(arry)/sizeof(arry[0]);
  
