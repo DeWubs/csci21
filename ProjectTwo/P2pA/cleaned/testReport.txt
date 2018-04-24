@@ -1,0 +1,14 @@
+    when working properly the code will take in commands from the user and track their attacks onto a board, the computer will make its decisions after the player based on an algorithm
+    that checks it's neighbors and diaplay it's attacks on a seperate board as well.
+
+i have tested various numbers outside of the options shown (1-3) to see if it would do something, it handled it correctly 
+and prompted the user to put in a number 1-3
+pressing 1 correctly shows the board and it sets the humans tracking board
+pressing 2 correctly prompts the user for an attack and displays the tracking board and correctly handles inputs 1-100 and
+replaces positions with H or M depending on if it were a hit or not.
+case 3 correctly ends the program
+
+inputs for the attack commands are not robust, but if arguments passed are within the parameters the program proceeds as it should, the computer's turn appears to exicute the 
+algorithm and it uses the queue appropriatley.
+
+for these reasons i belive that my code works.
