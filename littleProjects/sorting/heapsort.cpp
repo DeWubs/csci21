@@ -17,7 +17,7 @@ https://www.geeksforgeeks.org/heap-sort/
 using namespace std;
  
 // To heapify a subtree rooted with node i which is
-// an index in arry[]. n is size of heap
+// an index in arry[]. n = size of heap
 void heapify(int arry[], int n, int i){
     int largest = i;  // Initialize largest as root
     int l = 2*i + 1;  // left = 2*i + 1
