@@ -1,0 +1,161 @@
+QUEUE
+type QUEUE called
+my_tourney created
+start has been called
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+                    Round 1                           
+Winner: laddy
+Loser : praddy
+                    Round 2                           
+Winner: saddy
+Loser : thelegend27
+                    Round 3                           
+Winner: flyteturtlebug
+Loser : gravybatter
+                    Round 4                           
+Winner: dewubblebutz
+Loser : dragongoat
+                    Round 5                           
+Winner: hattermattagan
+Loser : hikitsu
+                    Round 6                           
+Winner: goodplayer
+Loser : maskipoo
+                    Round 7                           
+Winner: reapermainbtw
+Loser : theBigcheese
+                    Round 8                           
+Winner: laddy
+Loser : saddy
+                    Round 9                           
+Winner: dewubblebutz
+Loser : flyteturtlebug
+                    Round 10                           
+Winner: goodplayer
+Loser : hattermattagan
+                    Round 11                           
+Winner: laddy
+Loser : reapermainbtw
+                    Round 12                           
+Winner: dewubblebutz
+Loser : goodplayer
+                    Round 13                           
+Winner: dewubblebutz
+Loser : laddy
+###############################
+Tournament WINNER: dewubblebutz
+###############################
+laddy played 4 games
+praddy played 1 game
+saddy played 2 games
+thelegend27 played 1 game
+flyteturtlebug played 2 games
+gravybatter played 1 game
+dragongoat played 1 game
+dewubblebutz played 4 games
+hattermattagan played 2 games
+hikitsu played 1 game
+maskipoo played 1 game
+goodplayer played 3 games
+theBigcheese played 1 game
+reapermainbtw played 2 games
+###############################
+average games played: 1.86
+median games played: 1
+total games played : 13
+###############################
+fetchezlavache:~/workspace/ProjectTwo/P2pc (master) $ ./labtest names STACK
+STACK
+start has been called
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+file Loaded
+                    Round 1                           
+Winner: reapermainbtw
+Loser : theBigcheese
+                    Round 2                           
+Winner: goodplayer
+Loser : reapermainbtw
+                    Round 3                           
+Winner: goodplayer
+Loser : maskipoo
+                    Round 4                           
+Winner: goodplayer
+Loser : hikitsu
+                    Round 5                           
+Winner: goodplayer
+Loser : hattermattagan
+                    Round 6                           
+Winner: dewubblebutz
+Loser : goodplayer
+                    Round 7                           
+Winner: dewubblebutz
+Loser : dragongoat
+                    Round 8                           
+Winner: dewubblebutz
+Loser : gravybatter
+                    Round 9                           
+Winner: dewubblebutz
+Loser : flyteturtlebug
+                    Round 10                           
+Winner: dewubblebutz
+Loser : thelegend27
+                    Round 11                           
+Winner: dewubblebutz
+Loser : saddy
+                    Round 12                           
+Winner: dewubblebutz
+Loser : praddy
+                    Round 13                           
+Winner: dewubblebutz
+Loser : laddy
+###############################
+Tournament WINNER: dewubblebutz
+###############################
+laddy played 1 game
+praddy played 1 game
+saddy played 1 game
+thelegend27 played 1 game
+flyteturtlebug played 1 game
+gravybatter played 1 game
+dragongoat played 1 game
+dewubblebutz played 8 games
+hattermattagan played 1 game
+hikitsu played 1 game
+maskipoo played 1 game
+goodplayer played 5 games
+theBigcheese played 1 game
+reapermainbtw played 2 games
+###############################
+average games played: 1.86
+median games played: 1
+total games played : 13
+###############################
+
+I am convinced this worked because the largest ascii name was the winner of the tourney
+the queue was more efficent because the matches per name was lower so the total computing
+done was less than the stack.
