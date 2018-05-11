@@ -2,12 +2,13 @@
 #define COMPUTER_H
 #include "player.h"
 #include "board.h"
-#include <queue>
+#include "node.h"
+#include "queue.h"
 using namespace std;
 class Computer: public Player{
     private:
         Board track_Board_C;
-        queue<int> attackNums_;
+        Queue<int> attackNums_;
         
         int attackNum_;
         
