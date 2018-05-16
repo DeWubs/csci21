@@ -1,0 +1,11 @@
+with my word list i mainly wanted to test the prefix a, because it was easy to slap together a couple words starting with a.
+my list of words had several words starting with the letter a, i even mixed them up and put them in non-numerical order
+the output of my program was
+enter a prefix: a
+a
+and
+are
+at
+as
+
+it put them in the correct order, and that is why i am convinced that this works.
